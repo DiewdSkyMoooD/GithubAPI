@@ -17,13 +17,14 @@ $btn.addEventListener('click',getGithub);
      }catch(err){
         $card.innerHTML='';
         let h1=d.createElement('h1');
-        h1.textContent="No se ha encontrado usuario con ese nombre revise la busqueda e intente de nuevo"
+        h1.textContent=`No se ha encontrado usuario con ese nombre '${$usuario.value}' revise la busqueda e intente de nuevo`
         $card.appendChild(h1);
      }
-    
+    $usuario.value=''
 }
 
 function manipulacion(res, res2){
+    $card.innerHTML='';
     $principal.innerHTML='';
     $repositorios.innerHTML='';
     let fragmentPrincipal=d.createDocumentFragment();
