@@ -9,3 +9,15 @@ img{
 #contenedor{
     border: solid 1px red;
 }
+h4{
+    margin: 8px;
+    
+}
+#repos{
+    border-bottom: rgb(172, 171, 171)  0.5px solid;
+    
+}
+#repositorios h1{
+    margin-bottom: 30px;
+}
+
