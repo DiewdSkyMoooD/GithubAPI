@@ -4,8 +4,9 @@ let $repositorios=d.getElementById('repositorios');
 let $usuario=d.getElementById('usuario');
 let $btn=d.getElementById('boton');
 let $card=d.getElementById('card');
+//add listener to button
 $btn.addEventListener('click',getGithub);
-
+//function of request fetch using async-await
  async function getGithub(){
     try{
         let res=await fetch(`https://api.github.com/users/${$usuario.value}`);
@@ -15,6 +16,7 @@ $btn.addEventListener('click',getGithub);
         
         manipulacion(json, json2);
      }catch(err){
+         //handle errors
         $card.innerHTML='';
         let h1=d.createElement('h1');
         h1.textContent=`No se ha encontrado usuario con ese nombre '${$usuario.value}' revise la busqueda e intente de nuevo`
@@ -22,7 +24,7 @@ $btn.addEventListener('click',getGithub);
      }
     $usuario.value=''
 }
-
+// handle positive response from repos and users
 function manipulacion(res, res2){
     $card.innerHTML='';
     $principal.innerHTML='';
@@ -53,7 +55,6 @@ function manipulacion(res, res2){
         a.setAttribute('href',el.html_url);
         fragmentRepositorios.appendChild(div);
     });
-
     fragmentPrincipal.appendChild(img);
     fragmentPrincipal.appendChild(name);
     fragmentPrincipal.appendChild(nickname);
@@ -61,6 +62,5 @@ function manipulacion(res, res2){
     fragmentPrincipal.appendChild(bio);
     $principal.appendChild(fragmentPrincipal);
     $repositorios.appendChild(fragmentRepositorios);
-    
 }
 
